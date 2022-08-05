@@ -4,4 +4,4 @@
 
 ## [Unreleased]
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+- Ctrl click on a Minecraft ResourceLocation to jump to that file in the editor.
