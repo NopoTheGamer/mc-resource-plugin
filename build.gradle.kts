@@ -102,7 +102,7 @@ tasks {
     signPlugin {
         certificateChain.set(File(System.getenv("CERTIFICATE_CHAIN") ?: "chain.crt").readText(Charsets.UTF_8))
         privateKey.set(File(System.getenv("PRIVATE_KEY") ?: "private.pem").readText(Charsets.UTF_8))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+        password.set(File(System.getenv("PRIVATE_KEY_PASSWORD")?: "pass.word").readText(Charsets.UTF_8))
     }
 
     publishPlugin {
