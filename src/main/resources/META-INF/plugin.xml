@@ -10,8 +10,8 @@
         <applicationService serviceImplementation="com.github.nopothegamer.mcresourceplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.nopothegamer.mcresourceplugin.services.MyProjectService"/>
         <gotoDeclarationHandler implementation="com.github.nopothegamer.mcresourceplugin.CustomGotoDeclarationHandler"/>
-        <!--<typeDeclarationProvider implementation="com.github.nopothegamer.mcresourceplugin.CustomTypeDeclarationProvider"/>-->
     </extensions>
+    <idea-version since-build="212" until-build="223.*"/>
 
     <applicationListeners>
         <listener class="com.github.nopothegamer.mcresourceplugin.listeners.MyProjectManagerListener"
