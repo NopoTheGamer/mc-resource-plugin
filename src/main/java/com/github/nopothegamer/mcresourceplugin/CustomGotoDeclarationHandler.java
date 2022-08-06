@@ -15,9 +15,9 @@ import java.util.regex.Pattern;
 
 
 public class CustomGotoDeclarationHandler implements GotoDeclarationHandler {
-    private static final Pattern RESOURCE_PATTERN = Pattern.compile("(\\w+):((.*/)?(.*))");
+    private static final Pattern RESOURCE_PATTERN = Pattern.compile("(\\S+):((.*/)?(.*))");
     private static final Pattern RESOURCE_PATTERN2 = Pattern.compile("new *.*\\((.*), *((.*/)?(.*))\\)");
-    private static final Pattern FILE_PATTERN = Pattern.compile("(.*/main/).*");
+    private static final Pattern FILE_PATTERN = Pattern.compile("(.*/(main|test)/).*");
     String sourceText = "";
     @Override
     public PsiElement @Nullable [] getGotoDeclarationTargets(@Nullable PsiElement sourceElement, int offset, Editor editor) {
@@ -32,8 +32,7 @@ public class CustomGotoDeclarationHandler implements GotoDeclarationHandler {
         } else {
             sourceText = sourceElement.getContext().getContext().getContext().getText().replace("\"", "");
             resourceMatcher2 = RESOURCE_PATTERN2.matcher(sourceText);
-            if (resourceMatcher2.matches()) {
-            } else return new PsiElement[0];
+            if (!resourceMatcher2.matches()) return new PsiElement[0];
         }
 
 
